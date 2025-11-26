@@ -6,3 +6,8 @@ Here's the circuit that you can use with your ESP32-S3 on a bread board to test 
 
 ### Circuit Notes
 I added a 150 Ohm resistor to bring the current down on the LED to appropriate levels (5-10mA)
+
+### LED Schematic Reminder
+Here's a nice reminder of ways to determine how to hook an LED to positive / negative voltage:
+
+<img width="640" height="443" alt="LEDSchematicReminder" src="https://github.com/user-attachments/assets/eacf8a55-1592-46b8-be9f-6c2a81897b8f" />
