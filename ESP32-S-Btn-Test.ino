@@ -21,7 +21,10 @@ void setup() {
   setRGB(0, 0, 0); // Start with LED off
   
   Serial.println("Get ready to party! 🎉");
-   pinMode(MAIN_BTN, INPUT);
+   // the debounce wasn't working properly because
+   // I had MAIN_BTN set as INPUT but not INPUT_PULLDOWN
+   // INPUT_PULLDOWN makes debounce work perfectly 
+   pinMode(MAIN_BTN, INPUT_PULLDOWN);
    pinMode(DATA_LED, OUTPUT);
   delay(1000);
 
@@ -101,7 +104,7 @@ boolean debounce(boolean last, int button)
  boolean current = digitalRead(button);    // Read the button state
  if (last != current)                      // If it's different…
  {
-  delay(10);                                // Wait Xms -- X depends upon speed of chip
+  delay(5);                                // Wait 5ms -- thought delay mattered but it didn't (see INPUT_PULLDOWN note)
   current = digitalRead(button);           // Read it again
  }
  return current;                           // Return the current value
